@@ -1,0 +1,227 @@
+{
+  "openapi": "3.0.0",
+  "info" : {
+    "title": "SOLID API Documentation",
+    "description": "This is a SOLID API",
+    "version" : "1.0.0",
+    "contact" : {
+      "email" : "lionnard@live.com"
+    }
+  },
+  "paths" : {
+    "/users" : {
+      "post": {
+        "tags" : ["Users"],
+        "summary" : "Create an user",
+        "description" : "Create a new user",
+        "requestBody": {
+          "content" : {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name" : {
+                    "type" : "string"
+                  },
+                  "email" : {
+                    "type" : "string"
+                  }
+                },
+                "example" : {
+                  "name" : "Leonardo",
+                  "email" : "lionnard@live.com"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "201" : {
+            "description": "Created",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                    "properties" : {
+                      "name" : {
+                        "type" : "string"
+                      },
+                      "email" : {
+                        "type" : "string"
+                      },
+                      "id" : {
+                        "type" : "string"
+                      },
+                      "admin" : {
+                        "type" : "boolean"
+                      },
+                      "created_at" : {
+                        "type" : "string"
+                      },
+                      "updated_at" : {
+                        "type" : "string"
+                      }
+                    }
+                  }
+                }
+              }
+          },
+          "400" : {
+            "description" : "User already exists!"
+          }
+        }
+      }
+    },
+
+    "/users/profile/{id}" : {
+      "get" : {
+        "tags" : ["Users"],
+        "summary" : "List by ID",
+        "description" : "List an user by ID",
+        "parameters" : [
+          {
+          "name" : "id",
+          "in" : "path",
+          "schema" : {
+            "type" : "string"
+          }
+        }
+      ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                    "properties" : {
+                      "name" : {
+                        "type" : "string"
+                      },
+                      "email" : {
+                        "type" : "string"
+                      },
+                      "id" : {
+                        "type" : "string"
+                      },
+                      "admin" : {
+                        "type" : "boolean"
+                      },
+                      "created_at" : {
+                        "type" : "string"
+                      },
+                      "updated_at" : {
+                        "type" : "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+        }
+      }
+    },
+
+    "/users/{id}/admin" : {
+      "patch" : {
+        "tags" : ["Users"],
+        "summary" : "Turn user Admin",
+        "description" : "Turns an user into Administrator",
+        "parameters" : [
+          {
+          "name" : "id",
+          "in" : "path",
+          "schema" : {
+            "type" : "string"
+          }
+        }
+      ],
+      "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                    "properties" : {
+                      "name" : {
+                        "type" : "string"
+                      },
+                      "email" : {
+                        "type" : "string"
+                      },
+                      "id" : {
+                        "type" : "string"
+                      },
+                      "admin" : {
+                        "type" : "boolean"
+                      },
+                      "created_at" : {
+                        "type" : "string"
+                      },
+                      "updated_at" : {
+                        "type" : "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+        }
+      }
+    },
+  
+    "/users/all" : {
+      "get" : {
+        "tags" : ["Users"],
+        "summary" : "List all users",
+        "description" : "List all users if the user is an administrator",
+        "parameters" : [
+        {
+          "in" : "header",
+          "name" : "user_id",
+          "schema" : {
+            "type" : "string",
+            "format" : "uuid"
+          }
+        }
+      ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "object",
+                    "properties" : {
+                      "name" : {
+                        "type" : "string"
+                      },
+                      "email" : {
+                        "type" : "string"
+                      },
+                      "id" : {
+                        "type" : "string"
+                      },
+                      "admin" : {
+                        "type" : "boolean"
+                      },
+                      "created_at" : {
+                        "type" : "string"
+                      },
+                      "updated_at" : {
+                        "type" : "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
