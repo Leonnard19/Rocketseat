@@ -7,7 +7,12 @@ import { defaultTheme } from './styles/themes/default'
 function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
-      <BrowserRouter>
+      <BrowserRouter
+        future={{
+          v7_startTransition: true,
+          v7_relativeSplatPath: true,
+        }}
+      >
         <Router />
         <GlobalStyle />
       </BrowserRouter>
