@@ -16,8 +16,8 @@ export function History() {
           <thead>
             <tr>
               <th>Tarefa</th>
-              <th>Início</th>
               <th>Duração</th>
+              <th>Início</th>
               <th>Status</th>
             </tr>
           </thead>
@@ -25,9 +25,9 @@ export function History() {
             {cycles.map((cycle) => (
               <tr key={cycle.id}>
                 <td>{cycle.task}</td>
-                <td>{cycle.startDate.toLocaleDateString()}</td>
+                <td>{cycle.minutesAmount} minutos</td>
                 <td>
-                  {formatDistanceToNow(cycle.startDate, {
+                  {formatDistanceToNow(new Date(cycle.startDate), {
                     addSuffix: true,
                     locale: ptBR,
                   })}
