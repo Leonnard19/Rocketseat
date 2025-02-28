@@ -10,7 +10,7 @@ interface Cycle {
   task: string
   minutesAmount: number
   startDate: Date
-  interruptDate?: Date
+  interruptedDate?: Date
   finishedDate?: Date
 }
 
@@ -70,7 +70,15 @@ export function CyclesContextProvider({
   }
 
   function interruptCurrentCycle() {
-    markCurrentCycleAsFinished()
+    setCycles((state) =>
+      state.map((cycle) => {
+        if (cycle.id === activeCycleId) {
+          return { ...cycle, interruptedDate: new Date() }
+        } else {
+          return cycle
+        }
+      }),
+    )
 
     setActiveCycleId(null)
   }
