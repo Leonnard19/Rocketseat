@@ -36,7 +36,6 @@ export function Transactions() {
                   <td>
                     {dateFormatter.format(new Date(transaction.createdAt))}
                   </td>
-                  <td>{transaction.createdAt}</td>
                 </tr>
               )
             })}
