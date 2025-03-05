@@ -1,18 +1,19 @@
 import * as Dialog from '@radix-ui/react-dialog'
 import { ArrowCircleDown, ArrowCircleUp, X } from 'phosphor-react'
 import {
-    CloseButton,
-    Content,
-    Overlay,
-    TransactionType,
-    TransactionTypeButton,
+  CloseButton,
+  Content,
+  Overlay,
+  TransactionType,
+  TransactionTypeButton,
 } from './styles'
 
 export function NewTransactionModal() {
   return (
     <Dialog.Portal>
       <Overlay />
-      <Content>
+      {/* Suppress warning */}
+      <Content aria-describedby="">
         <Dialog.Title>Nova Transação</Dialog.Title>
         <CloseButton>
           <X size={24} />

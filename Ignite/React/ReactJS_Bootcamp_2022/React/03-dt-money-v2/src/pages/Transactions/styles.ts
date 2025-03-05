@@ -33,7 +33,9 @@ interface PriceHighlightProps {
   variant: 'income' | 'outcome'
 }
 
-export const PriceHighlight = styled.span<PriceHighlightProps>`
+export const PriceHighlight = styled.span.withConfig({
+  shouldForwardProp: prop => !['variant'].includes(prop),
+})<PriceHighlightProps>`
   color: ${(props) =>
     props.variant === 'income'
       ? props.theme['green-300']
