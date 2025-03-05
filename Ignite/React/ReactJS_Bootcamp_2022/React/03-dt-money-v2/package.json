@@ -6,8 +6,9 @@
   "scripts": {
     "dev": "vite",
     "dev:server": "json-server server.json -p 3333 -w -d 500",
-    "build": "tsc -b && vite build",
     "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "build": "tsc -b && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
