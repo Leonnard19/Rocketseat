@@ -1,9 +1,11 @@
+import { Button } from './components/ui/button'
+import './global.css'
 
 function App() {
   return (
-    <h1>
-      Hello world!
-    </h1>
+    <div className="flex justify-center items-center h-screen">
+      <Button className='cursor-pointer'>Enviar</Button>
+    </div>
   )
 }
 
