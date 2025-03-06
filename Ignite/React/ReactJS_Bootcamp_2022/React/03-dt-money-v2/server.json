@@ -39,6 +39,14 @@
       "type": "outcome",
       "createdAt": "2025-03-05T22:57:08.880Z",
       "id": 5
+    },
+    {
+      "description": "frango",
+      "price": 10,
+      "category": "alimentação",
+      "type": "outcome",
+      "createdAt": "2025-03-06T16:31:25.853Z",
+      "id": 6
     }
   ]
 }
