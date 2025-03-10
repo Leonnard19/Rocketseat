@@ -7,3 +7,13 @@ export const api = axios.create({
   // Cookies are sent with every request
   withCredentials: true,
 })
+
+if (env.VITE_ENABLE_API_DELAY) {
+  api.interceptors.request.use((config) => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(config)
+      }, 2000)
+    })
+  })
+}
