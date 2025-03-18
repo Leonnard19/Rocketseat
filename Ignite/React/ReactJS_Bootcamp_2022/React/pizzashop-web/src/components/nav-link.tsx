@@ -4,6 +4,7 @@ export type NavLinkProps = LinkProps
 
 export function NavLink(props: NavLinkProps) {
   const { pathname } = useLocation()
+
   return (
     <Link
       data-current={pathname === props.to}
