@@ -4,8 +4,16 @@ const nextConfig: NextConfig = {
   /* config options here */
   reactStrictMode: true,
 
+  // use image.remotePatterns
+
   images: {
-    domains: ['files.stripe.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.stripe.com',
+        pathname: '**',
+      },
+    ],
   },
 }
 
