@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'images.stripe.com',
+        hostname: 'files.stripe.com',
         pathname: '**',
       },
     ],
